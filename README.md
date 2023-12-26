@@ -76,19 +76,66 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "version": "0.1.0",
 "private": true,
 "dependencies": {
+"@babel/core": "^7.16.0",
+"@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+"@svgr/webpack": "^5.5.0",
 "@testing-library/jest-dom": "^5.17.0",
 "@testing-library/react": "^13.4.0",
 "@testing-library/user-event": "^13.5.0",
+"babel-jest": "^27.4.2",
+"babel-loader": "^8.2.3",
+"babel-plugin-named-asset-import": "^0.3.8",
+"babel-preset-react-app": "^10.0.1", //重写的目的:让语法包可以识别 React 的语法，实现代码转换
+"bfj": "^7.0.2",
+"browserslist": "^4.18.1",
+"camelcase": "^6.2.1",
+"case-sensitive-paths-webpack-plugin": "^2.4.0",
+"css-loader": "^6.5.1",
+"css-minimizer-webpack-plugin": "^3.2.0", //压缩 css
+"dotenv": "^10.0.0",
+"dotenv-expand": "^5.1.0",
+"eslint": "^8.3.0",
+"eslint-config-react-app": "^7.0.1",
+"eslint-webpack-plugin": "^3.1.1",
+"file-loader": "^6.2.0",
+"fs-extra": "^10.0.0",
+"html-webpack-plugin": "^5.5.0", //打包 html 将 js,css 自动打包到 html
+"identity-obj-proxy": "^3.0.0",
+"jest": "^27.4.3",
+"jest-resolve": "^27.4.2",
+"jest-watch-typeahead": "^1.0.0",
+"mini-css-extract-plugin": "^2.4.5", //css 提取单独的文件
+"postcss": "^8.4.4", //自动加前缀
+"postcss-flexbugs-fixes": "^5.0.2",
+"postcss-loader": "^6.2.1",
+"postcss-normalize": "^10.0.1",
+"postcss-preset-env": "^7.0.1",
+"prompts": "^2.4.2",
 "react": "^18.2.0", //框架核心
+"react-app-polyfill": "^3.0.0",
+"react-dev-utils": "^12.0.1",
 "react-dom": "^18.2.0", //react 视图渲染核心【基于 react 构建 webapp】
-"react-scripts": "5.0.1", //脚手架为了让项目目录更干净，把 webpack 等插件隐藏到了 node_modules 下
-"web-vitals": "^2.1.4" //性能检测工具
+"react-refresh": "^0.11.0",
+"resolve": "^1.20.0",
+"resolve-url-loader": "^4.0.0",
+"sass-loader": "^12.3.0", //默认配置 sass
+"semver": "^7.3.5",
+"source-map-loader": "^3.0.0",
+"style-loader": "^3.3.1",
+"tailwindcss": "^3.0.2",
+"terser-webpack-plugin": "^5.2.5", //js 压缩
+"web-vitals": "^2.1.4", //性能检测工具
+"webpack": "^5.64.4",
+"webpack-dev-server": "^4.6.0",
+"webpack-manifest-plugin": "^4.0.2",
+"react-scripts": "5.0.1", //脚手架为了让项目目录更干净，把 webpack 等插件隐藏到了 node_modules 下,暴露后消失
+
 },
 "scripts": {
 "start": "react-scripts start", //开发环境：本地启动 web 服务器，预览打包内容
 "build": "react-scripts build", //生产环境：打包部署，打包内容输出到 dist 目录中
 "test": "react-scripts test", //单元测试
-"eject": "react-scripts eject" //暴露 webpack 配置规则
+"eject": "react-scripts eject" //暴露 webpack 配置规则，暴露后消失
 },
 "eslintConfig": { //词法检查
 "extends": [
@@ -97,7 +144,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ]
 },
 "browserslist": { //设置浏览器兼容情况
-"production": [ //postcss-loader+autoprefixer 设置 css 前缀，Babel-loader 把 ES6 编译成 ES5
+"production": [ //postcss-loader+autoprefixer 设置 css 前缀，Babel-loader 把 ES6 编译成 ES5,但无法处理内置 ES6API 兼容，所以要利用 react-app-polyfill 插件
 ">0.2%", //使用率超过 0.2
 "not dead", //忽略 ie
 "not op_mini all" //不考虑欧朋浏览器
