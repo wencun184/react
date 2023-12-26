@@ -68,3 +68,44 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### 目录
+
+{
+"name": "reactproject",
+"version": "0.1.0",
+"private": true,
+"dependencies": {
+"@testing-library/jest-dom": "^5.17.0",
+"@testing-library/react": "^13.4.0",
+"@testing-library/user-event": "^13.5.0",
+"react": "^18.2.0", //框架核心
+"react-dom": "^18.2.0", //react 视图渲染核心【基于 react 构建 webapp】
+"react-scripts": "5.0.1", //脚手架为了让项目目录更干净，把 webpack 等插件隐藏到了 node_modules 下
+"web-vitals": "^2.1.4" //性能检测工具
+},
+"scripts": {
+"start": "react-scripts start", //开发环境：本地启动 web 服务器，预览打包内容
+"build": "react-scripts build", //生产环境：打包部署，打包内容输出到 dist 目录中
+"test": "react-scripts test", //单元测试
+"eject": "react-scripts eject" //暴露 webpack 配置规则
+},
+"eslintConfig": { //词法检查
+"extends": [
+"react-app",
+"react-app/jest"
+]
+},
+"browserslist": { //设置浏览器兼容情况
+"production": [ //postcss-loader+autoprefixer 设置 css 前缀，Babel-loader 把 ES6 编译成 ES5
+">0.2%", //使用率超过 0.2
+"not dead", //忽略 ie
+"not op_mini all" //不考虑欧朋浏览器
+],
+"development": [
+"last 1 chrome version",
+"last 1 firefox version",
+"last 1 safari version"
+]
+}
+}
