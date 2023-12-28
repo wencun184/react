@@ -5,16 +5,16 @@ import "react-app-polyfill/stable";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createElement } from "./jsxHandle";
+import { createElement, render } from "./jsxHandle";
 import "@/index.less";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <>
-    <div style={{ color: "red" }}>嘻嘻</div>
-    <div>aa</div>
-  </>
-);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <>
+//     <div className="title">嘻嘻</div>
+//     <div>aa</div>
+//   </>
+// );
 
 fetch("/jian/subscriptions/recommended_collections")
   .then((resolve) => resolve.json())
@@ -26,29 +26,18 @@ fetch("/zhi/news/latest")
   .then((res) => {
     console.log(res);
   });
-console.log(
-  React.createElement(
-    React.Fragment,
-    null,
-    React.createElement("h2", { className: "title" }, 10),
-    React.createElement(
-      "div",
-      { className: "box" },
-      React.createElement("span", null, 10),
-      React.createElement("span", null, 10)
-    )
-  )
-);
-console.log(
+
+const x = 10;
+const y = "20";
+const vdom = createElement(
+  "div",
+  null,
+  createElement("h2", { className: "title" }, 10),
   createElement(
-    React.Fragment,
-    null,
-    createElement("h2", { className: "title" }, 10),
-    createElement(
-      "div",
-      { className: "box" },
-      createElement("span", null, 10),
-      createElement("span", null, 10)
-    )
+    "div",
+    { style: { fontSize: "18px" } },
+    createElement("span", null, x),
+    createElement("span", null, y)
   )
 );
+render(vdom, document.getElementById("root"));
