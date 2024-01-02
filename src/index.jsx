@@ -7,8 +7,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // import { createElement, render } from "./jsxHandle";
 import "@/index.less";
-import PropsDome from "@/components/SlotTest";
-import ClassComponent from "./components/ClassConponentTest";
+import PropsDome from "@/components/test/SlotTest";
+import ClassComponent from "./components/test/ClassConponentTest";
+import MobileClick from "@/components/test/MobileClick";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,33 +22,34 @@ root.render(
       <div slot="footer">页脚</div>
     </PropsDome>
     <ClassComponent title="标题"></ClassComponent>
+    <MobileClick></MobileClick>
   </>
 );
-setTimeout(() => {
-  root.render(
-    <>
-      <div className="title">嘻嘻</div>
-      <div>aa</div>
-      <PropsDome>
-        <div slot="header">页眉</div>
-        <div>自定义</div>
-        <div slot="footer">页脚</div>
-      </PropsDome>
-      <ClassComponent title="nini"></ClassComponent>
-    </>
-  );
-}, 5000);
+// setTimeout(() => {
+//   root.render(
+//     <>
+//       <div className="title">嘻嘻</div>
+//       <div>aa</div>
+//       <PropsDome>
+//         <div slot="header">页眉</div>
+//         <div>自定义</div>
+//         <div slot="footer">页脚</div>
+//       </PropsDome>
+//       <ClassComponent title="nini"></ClassComponent>
+//     </>
+//   );
+// }, 5000);
 
-fetch("/jian/subscriptions/recommended_collections")
-  .then((resolve) => resolve.json())
-  .then((res) => {
-    console.log(res);
-  });
-fetch("/zhi/news/latest")
-  .then((resolve) => resolve.json())
-  .then((res) => {
-    console.log(res);
-  });
+// fetch("/jian/subscriptions/recommended_collections")
+//   .then((resolve) => resolve.json())
+//   .then((res) => {
+//     console.log(res);
+//   });
+// fetch("/zhi/news/latest")
+//   .then((resolve) => resolve.json())
+//   .then((res) => {
+//     console.log(res);
+//   });
 
 // const x = 10;
 // const y = "20";
