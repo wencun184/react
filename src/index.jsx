@@ -13,12 +13,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import zhCN from "antd/locale/zh_CN";
 import { ConfigProvider } from "antd";
-import ToDoList from "./components/test/ToDoList";
+import ToDoListHooks from "./components/test/ToDoListHooks";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ConfigProvider locale={zhCN}>
-    <ToDoList></ToDoList>
+    <ToDoListHooks></ToDoListHooks>
   </ConfigProvider>
 );
 
