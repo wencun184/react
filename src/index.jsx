@@ -3,6 +3,8 @@
 // import ClassComponent from "./components/test/ClassConponentTest";
 // import MobileClick from "@/components/test/MobileClick";
 // import ToDoListHooks from "./components/test/ToDoListHooks";
+// 未使用react-redux时引入store使用的方法
+// import ThemeContext from "./ThemeContext";
 // ES6内置API兼容处理
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/ie9";
@@ -15,16 +17,16 @@ import ReactDOM from "react-dom/client";
 import zhCN from "antd/locale/zh_CN";
 import { ConfigProvider } from "antd";
 // REDUX
-import store from "./store/test/index";
-import ThemeContext from "./ThemeContext";
-import Vote from "./components/reduxTest/Vote";
+import { Provider } from "react-redux";
+import store from "./store/index";
+import Vote from "./components/reactaReduxTest/Vote";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ConfigProvider locale={zhCN}>
-    <ThemeContext.Provider value={{ store }}>
+    <Provider store={store}>
       <Vote></Vote>
-    </ThemeContext.Provider>
+    </Provider>
   </ConfigProvider>
 );
 
