@@ -2,6 +2,7 @@
 // import PropsDome from "@/components/test/SlotTest";
 // import ClassComponent from "./components/test/ClassConponentTest";
 // import MobileClick from "@/components/test/MobileClick";
+// import ToDoListHooks from "./components/test/ToDoListHooks";
 // ES6内置API兼容处理
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/ie9";
@@ -13,12 +14,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import zhCN from "antd/locale/zh_CN";
 import { ConfigProvider } from "antd";
-import ToDoListHooks from "./components/test/ToDoListHooks";
+// REDUX
+import store from "./store/test/index";
+import ThemeContext from "./ThemeContext";
+import Vote from "./components/reduxTest/Vote";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ConfigProvider locale={zhCN}>
-    <ToDoListHooks></ToDoListHooks>
+    <ThemeContext.Provider value={{ store }}>
+      <Vote></Vote>
+    </ThemeContext.Provider>
   </ConfigProvider>
 );
 

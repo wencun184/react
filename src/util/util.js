@@ -5,7 +5,7 @@ const class2type = {};
 const toString = class2type.toString;
 // 相当于 Object.prototype.hasOwnProperty
 const hasOwn = class2type.hasOwnProperty;
-function isPlainObject(obj) {
+export function isPlainObject(obj) {
   let proto, Ctor;
   // 排除掉明显不是obj的以及一些宿主对象如Window
   if (!obj || toString.call(obj) !== "[object Object]") {
@@ -33,10 +33,10 @@ function isPlainObject(obj) {
     hasOwn.toString.call(Ctor) === hasOwn.toString.call(Object)
   );
 }
-const utils = {
-  isPlainObject,
-};
+// const utils = {
+//   isPlainObject,
+// };
 /*导出API */
-if (typeof window !== "undefined") window.utils = window._ = utils;
-if (typeof module === "object" && typeof module.exports === "object")
-  module.exports = utils;
+// if (typeof window !== "undefined") window.utils = window._ = utils;
+// if (typeof module === "object" && typeof module.exports === "object")
+// export default utils;
