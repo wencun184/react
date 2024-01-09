@@ -3,6 +3,8 @@
 // import ClassComponent from "./components/test/ClassConponentTest";
 // import MobileClick from "@/components/test/MobileClick";
 // import ToDoListHooks from "./components/test/ToDoListHooks";
+import ToDoListHooksRedux from "./components/test/ToDoListHooksRedux";
+// import Vote from "./components/reactaReduxTest/Vote";
 // 未使用react-redux时引入store使用的方法
 // import ThemeContext from "./ThemeContext";
 // ES6内置API兼容处理
@@ -19,13 +21,12 @@ import { ConfigProvider } from "antd";
 // REDUX
 import { Provider } from "react-redux";
 import store from "./store/index";
-import Vote from "./components/reactaReduxTest/Vote";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ConfigProvider locale={zhCN}>
     <Provider store={store}>
-      <Vote></Vote>
+      <ToDoListHooksRedux></ToDoListHooksRedux>
     </Provider>
   </ConfigProvider>
 );

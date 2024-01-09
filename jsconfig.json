@@ -1,4 +1,3 @@
-// 解决@智能提示问题
 {
   "compilerOptions": {
     "emitDecoratorMetadata": true,

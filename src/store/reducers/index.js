@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 // import myCombineReducers from "../test/myCombineReducers";
 import voteRederce from "./voteRederce";
-import voteRederce2 from "./vote2Rederce";
+import taskRederce from "./taskRederce";
 const reducer = combineReducers({
   vote: voteRederce,
-  vote2: voteRederce2,
+  task: taskRederce,
 });
 export default reducer;
